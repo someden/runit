@@ -29,7 +29,7 @@ describe('resolveLogLevel', () => {
   test('уровень по окружению', () => {
     expect(resolveLogLevel('production')).toBe('info');
     expect(resolveLogLevel('development')).toBe('debug');
-    // Иначе логи запросов заливают отчёт jest.
+    // Иначе логи запросов заливают отчёт vitest.
     expect(resolveLogLevel('test')).toBe('silent');
   });
 

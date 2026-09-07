@@ -22,10 +22,8 @@
     "generate:types": "tsc --emitDeclarationOnly --outDir types",
     "runner:build-images": "tsx src/runner/buildImages.ts",
     "runner:pull-images": "tsx src/runner/pullImages.ts",
-    "test:runner": "node --import tsx --test src/runner/*.test.ts",
-    "test:unit": "NODE_OPTIONS=--experimental-vm-modules jest",
     "runner:smoke": "node bin/runner-smoke.mjs",
-    "test": "npm run test:runner && npm run test:unit"
+    "test": "vitest run"
   },
   "repository": {
     "type": "git",
@@ -57,14 +55,12 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.3",
-    "@swc/core": "^1.15.47",
-    "@swc/jest": "^0.2.39",
     "@types/bcrypt": "^6.0.0",
-    "@types/jest": "^30.0.0",
     "@types/node": "^24.6.2",
     "drizzle-kit": "^0.31.5",
-    "jest": "^30.4.2",
     "tsx": "^4.20.6",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^8.2.2",
+    "vitest": "^5.0.0"
   }
 }

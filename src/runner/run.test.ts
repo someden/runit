@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict';
 import { readdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { test } from 'node:test';
 import { runnerConfig } from './config';
 import type { ProcessResult } from './process';
 import { type RunDeps, runCode } from './run';

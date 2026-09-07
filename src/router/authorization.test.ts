@@ -135,7 +135,7 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
-  // Без закрытия пула jest висит: соединения с PostgreSQL держат процесс.
+  // Без закрытия пула vitest висит: соединения с PostgreSQL держат процесс.
   await closeDbConnection();
   await dropTestDatabase(TEST_DATABASE);
 });

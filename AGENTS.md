@@ -32,7 +32,9 @@ npm run lint && npx tsc --noEmit && npx tsc --noEmit -p tsconfig.test.json && np
 
 Проверок типов две: основная и `-p tsconfig.test.json`. Основной конфиг исключает `*.test.ts`, и ошибка, проходящая мимо первой проверки и валящая вторую, уже случалась (#945).
 
-`npm test` — это юниты раннера (Docker не нужен) плюс jest, которому нужна живая PostgreSQL: `docker compose up -d db`. Фронтенд проверяется отдельно, из `frontend/`: `npx tsc --noEmit && npm test`.
+`npm test` — это vitest, один прогон на весь бэкенд. Нужна живая PostgreSQL: `docker compose up -d db`. Части набора запускаются так же, через `--`: `npm test -- src/runner` (тесты раннера, им не нужны ни Docker, ни база) и `npm test -- --exclude 'src/runner/**'` (всё остальное). Фронтенд проверяется отдельно, из `frontend/`: `npx tsc --noEmit && npm test`.
+
+`vite` лежит в `devDependencies`, хотя бэкенд ничего им не собирает, и удалять его как лишний нельзя. Vitest 5 держит vite в `peerDependencies`, и тогда rolldown с полутора десятками платформенных бинарников попадает в дерево по peer-пути. Такие узлы npm вычищает из `package-lock.json` при следующей установке — vitest перестаёт стартовать с `Cannot find native binding`, причём сломанный lockfile уезжает в коммит и роняет CI на другой платформе. Явная зависимость это предотвращает.
 
 Ветка обязана быть свежей относительно `main` — `git pull --rebase origin main`.
 

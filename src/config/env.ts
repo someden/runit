@@ -121,7 +121,7 @@ const envSchema = z
     /**
      * Уровень логов pino. По умолчанию выводится из NODE_ENV: в проде info,
      * в разработке debug, в тестах silent — иначе логи запросов заливают отчёт
-     * jest и падение теста приходится искать глазами.
+     * vitest и падение теста приходится искать глазами.
      */
     LOG_LEVEL: z
       .enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent'])

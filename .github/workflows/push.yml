@@ -43,11 +43,8 @@ jobs:
       - name: Проверка типов
         run: npx tsc --noEmit
 
-      - name: Юнит-тесты раннера
-        run: npm run test:runner
-
-      - name: Тесты авторизации и политики паролей
-        run: npm run test:unit
+      - name: Тесты
+        run: npm test
 
       - name: Установка зависимостей (фронтенд)
         run: npm ci
