@@ -1,5 +1,4 @@
 import assert from 'node:assert/strict';
-import { test } from 'node:test';
 import { runnerConfig } from './config';
 import { buildDockerArgs } from './dockerArgs';
 import { LANGUAGE_SPECS, specFor } from './languages';

@@ -1,5 +1,4 @@
 import assert from 'node:assert/strict';
-import { test } from 'node:test';
 import { ensureImages, type ImageDeps, isRemoteImage } from './images';
 import type { ProcessResult, RunProcessOptions } from './process';
 
